@@ -1,3 +1,4 @@
+import math
 class Calculator:
     def __init__(self):
         self.base_numeral_system = 10
