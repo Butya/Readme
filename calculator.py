@@ -4,26 +4,47 @@ class Calculator:
         self.base_numeral_system = 10
 
     def add(self, x, y):
-        """This function adds two numbers"""
-
-        raise NotImplementedError
+         return x + y       
 
     def subtract(self, x, y):
-        """This function subtracts two numbers"""
+      return x - y
 
-        raise NotImplementedError
+   
 
     def multiply(self, x, y):
-        """This function multiplies two numbers"""
+        return x * y
 
-        raise NotImplementedError
+     
 
     def divide(self, x, y):
-        """This function divides two numbers"""
+        return x / y
 
-        raise NotImplementedError
+      
 
     def evaluate(self, expression):
-        """This function evaluate expression"""
+         def __init__(self, left, op, right):
+        self.__left = left
+        self.__op = op
+        self.__right = right
 
-        raise NotImplementedError
+    def Evaluate(self, dictionary):
+        # NEW code
+        if self.__op == '=':
+            assert isinstance(self.__left, Variable), 'Must Assign to Variable'
+            name = self.__left._Variable__name
+            value = self.__right.Evaluate(dictionary)
+            dictionary[name] = value
+            return value
+        # END code
+        x = self.__left.Evaluate(dictionary)
+        y = self.__right.Evaluate(dictionary)
+        if self.__op == '+':
+            return x + y
+        if self.__op == '-':
+            return x - y
+        if self.__op == '*':
+            return x * y
+        if self.__op == '/':
+            return x / y
+
+        
